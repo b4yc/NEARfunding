@@ -38,7 +38,12 @@ export default function App() {
         // use React Fragment, <>, to avoid wrapping elements in unnecessary divs
         <>
           <Container>
-            <Row>
+            <Row
+              style={{
+                // borderBottom: "0.5px solid black",
+                marginBottom: "50px",
+              }}
+            >
               <Col>
                 <h5>
                   Welcome to NEARfunding,{" "}

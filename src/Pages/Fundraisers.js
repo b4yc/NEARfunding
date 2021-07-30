@@ -33,9 +33,16 @@ export default function Fundraisers() {
         />
       ) : (
         <Container fluid={true}>
+          {fundraisers.length === 0 && (
+            <Row>
+              <p style={{ textAlign: "center", marginTop: "50px" }}>
+                You have no fundraisers, create one by clicking the card below.
+              </p>
+            </Row>
+          )}
           <Row xs={1} sm={2} md={3}>
             {fundraisers.map((fundraiser, index) => (
-              <Col>
+              <Col key={index}>
                 <FundraiserCard
                   title={fundraiser.title}
                   description={fundraiser.description}
@@ -51,7 +58,7 @@ export default function Fundraisers() {
                   setShowModal(true);
                 }}
               >
-                +
+                + Add
               </Card>
             </Col>
             <Modal

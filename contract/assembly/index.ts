@@ -122,13 +122,6 @@ export function donateToFundraiser(
   return id;
 }
 
-export function clearBlockchain(): void {
-  fundraisers.clear();
-  donations.clear();
-  userFundraisers.clear();
-  userDonations.clear();
-}
-
 export function transferNearTokens(
   fundraiserId: string,
   parsedAmount: u128,
@@ -142,4 +135,11 @@ export function transferNearTokens(
   fundraisers.set(fundraiserId, fundraiser);
   ContractPromiseBatch.create(account).transfer(parsedAmount);
   logging.log("Success! Tokens Transferred to " + account);
+}
+
+export function clearBlockchain(): void {
+  fundraisers.clear();
+  donations.clear();
+  userFundraisers.clear();
+  userDonations.clear();
 }

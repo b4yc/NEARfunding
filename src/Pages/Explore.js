@@ -30,9 +30,17 @@ export default function Explore() {
         />
       ) : (
         <Container fluid={true}>
+          {fundraisers.length === 0 && (
+            <Row>
+              <p style={{ textAlign: "center", marginTop: "50px" }}>
+                There are no open fundraisers! To create one, click the "My
+                Fundraisers" tab.
+              </p>
+            </Row>
+          )}
           <Row xs={1} sm={2} md={3}>
             {fundraisers.map((fundraiser) => (
-              <Col>
+              <Col key={fundraiser.id}>
                 <DonateCard
                   title={fundraiser.title}
                   description={fundraiser.description}
